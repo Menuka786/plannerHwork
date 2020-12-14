@@ -33,13 +33,15 @@ localStorage.setItem("5PM", document.querySelector('#me17').value)
 
 });
 function pastPresentFuture() {
-    const nowTime = moment().format('LT')
+    var nowTime = moment().format('LT')
 console.log(nowTime);
+var textDescription =  $(".col-sm-1 hour");
+console.log(textDescription)
 
-        if (nowTime > $("#time")) {
+        if (nowTime > textDescription) {
             $(".description").addClass("future")
         }
-        else if (currentTime === $("#time")) {
+        else if (currentTime === textDescription) {
             $(".description").addClass("present");
         }
         else {
