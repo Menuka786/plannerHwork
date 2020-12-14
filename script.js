@@ -26,12 +26,23 @@ localStorage.setItem("3PM", document.querySelector('#me15').value)
 localStorage.setItem("4PM", document.querySelector('#me16').value)
 localStorage.setItem("5PM", document.querySelector('#me17').value)
 
-if(currentTime=A9Am.value){
-
-
-}
 
 });
+function pastPresentFuture() {
+    var hour = $(".col-sm-1 hour");
+
+        if (currentTime > hour) {
+            $(this).addClass("future")
+        }
+        else if (currentTime === hour) {
+            $(this).addClass("present");
+        }
+        else {
+            $(this).addClass("past");
+        }
+    };
+
+pastPresentFuture();
 
 
 
