@@ -1,6 +1,5 @@
+
 // This will display current date
-
-
 
 
 var currentTime = $("#currentDay").text(new Date());
@@ -17,6 +16,7 @@ var A9Am=$("#me15");
 var A10Am=$("#me16");
 var A9Am=$("#me17");
 
+// Following functions will store text value to the local storage.
 
 $("button").on("click", function()
 {
@@ -32,69 +32,39 @@ localStorage.setItem("5PM", document.querySelector('#me17').value)
 
 
 });
+
+function restoreFromLocalStorage(){
+  document.querySelector('#me9').value = localStorage.getItem("9AM")
+  document.querySelector('#me10').value = localStorage.getItem("10AM")
+  document.querySelector('#me11').value = localStorage.getItem("11AM")
+  document.querySelector('#me12').value = localStorage.getItem("12PM")
+  document.querySelector('#me13').value = localStorage.getItem("1PM")
+  document.querySelector('#me14').value = localStorage.getItem("2PM")
+  document.querySelector('#me15').value = localStorage.getItem("3PM")
+  document.querySelector('#me16').value = localStorage.getItem("4PM")
+  document.querySelector('#me17').value = localStorage.getItem("5PM")
+
+}
+// Following function will change color of the text input as per past, present and future.
+
 function pastPresentFuture() {
-    var nowTime = moment().format('LT')
-console.log(nowTime);
-var textDescription =  $(".col-sm-1 hour");
-console.log(textDescription)
+ //assigning value for current time
+    var nowTime = new Date().getHours()
+//adding for loop to find current time and add the past future and present class.
 
-        if (nowTime > textDescription) {
-            $(".description").addClass("future")
-        }
-        else if (currentTime === textDescription) {
-            $(".description").addClass("present");
-        }
-        else {
-            $(".description").addClass("past");
-        }
-    };
-  
+  for(var i=9; i<=17; i++){
+    if (nowTime > i) {
+        $("#me"+i).addClass("past")
+    }
+    else if (nowTime === i) {
+        $("#me"+i).addClass("present");
+    }
+    else {
+        $("#me"+i).addClass("future");
+    }
+  }
 
+};
+// Here calling restoreFormLocal Storage function and pastPresentFuture function.
+restoreFromLocalStorage();
 pastPresentFuture();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
