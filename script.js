@@ -1,4 +1,8 @@
 // This will display current date
+
+
+
+
 var currentTime = $("#currentDay").text(new Date());
 
 // Assigning variable to html text id
@@ -29,18 +33,20 @@ localStorage.setItem("5PM", document.querySelector('#me17').value)
 
 });
 function pastPresentFuture() {
-    var hour = $(".col-sm-1 hour");
+    const nowTime = moment().format('LT')
+console.log(nowTime);
 
-        if (currentTime > hour) {
-            $(this).addClass("future")
+        if (nowTime > $("#time")) {
+            $(".description").addClass("future")
         }
-        else if (currentTime === hour) {
-            $(this).addClass("present");
+        else if (currentTime === $("#time")) {
+            $(".description").addClass("present");
         }
         else {
-            $(this).addClass("past");
+            $(".description").addClass("past");
         }
     };
+  
 
 pastPresentFuture();
 
